@@ -1,0 +1,1 @@
+export { default } from "file:///C:/Users/alexp/Downloads/Telegram%20Desktop/ready/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

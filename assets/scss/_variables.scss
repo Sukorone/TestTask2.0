@@ -1,0 +1,56 @@
+@use 'sass:map';
+
+$colors: (
+    'primary': (
+        'base': #3b82f6,
+        'hover': #2563eb,
+    ),
+    'danger': (
+        'base': #ef4444,
+        'hover': #dc2626,
+    ),
+    'success': (
+        'base': #22c55e,
+        'hover': #16a34a,
+    ),
+    'gray': (
+        'base': #6b7280,
+        'hover': #4b5563,
+        'light': #f3f4f6,
+    ),
+);
+
+$breakpoints: (
+    'sm': 640px,
+    'md': 768px,
+    'lg': 1024px,
+    'xl': 1280px,
+);
+
+$spacings: (
+    'xs': 0.25rem,
+    'sm': 0.5rem,
+    'md': 1rem,
+    'lg': 1.5rem,
+    'xl': 2rem,
+);
+
+@mixin media-up($breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+@mixin media-down($breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+@function color($color, $variant: 'base') {
+    @return map.get(map.get($colors, $color), $variant);
+}
+
+@function spacing($size) {
+    @return map.get($spacings, $size);
+}
